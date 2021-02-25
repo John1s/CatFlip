@@ -1,6 +1,6 @@
 # CatFlip
 
-This application returns a random example of a cat and performs to image transformations
+This application returns a random example of a cat and performs image transformations
 
 ## Cats
 
@@ -23,7 +23,7 @@ For example:
 
     /api/cats?text=hello&tag=cute&scale=150&alpha=5
 
-The transformation interface and transformation folder allows the addition of additional transformations as needed.
+The transformation interface and transformation folder allows you to add additional transformations as needed.
 
 ## API Documentation
 
@@ -42,7 +42,7 @@ The application supports an in memory or SqlServer database. To configure the da
 
     "UseInMemoryDb" : "true"
 
-For a SQLServer database a connection string must also be provided.
+For a SQLServer database set the UseInMemoryDb to false and set a connection string.
 
     "ConnectionStrings": {
       "UserDatabase": "Server=localhost,1433;Database=UserDb;User ID=sa;Password="
@@ -54,17 +54,17 @@ The application supports Basic and OpenId authentication.
 
 ### Basic
 
-For basic authentication create a user using the
+For basic authentication create a user using the endpoint
 
     POST /api/user
 
-Then authenticate using
+Then authenticate using the endpoint
 
     POST /api/auth/login
 
 ### OpenId
 
-You login with Open ID enter the details for the identity provider in the appsettings.json file.
+To login with Open ID enter the details for the identity provider in the appsettings.json file.
 
     "Openid": {  
       "Authority": "",  
@@ -73,7 +73,7 @@ You login with Open ID enter the details for the identity provider in the appset
     }
 
 The client secret can be provided by using an environment variable. An example configuration is included in the appsettings.Development.json file.
-This uses an demo client on the https://auth0.com/ site. Users can authenticate using:
+This uses a demo client on the https://auth0.com/ site. Users can authenticate using:
 
 Username: test1@demo.com  
 Password: Password!  
