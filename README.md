@@ -14,10 +14,10 @@ or use the Swagger UI.
 
 Additional optional transformation options can be included using query parameters
 
-- tag   This allows you to only show cats that match the provided tab
-- text  This allows you to display some additional text on you image (the right way around).
-- scale This allows you to make the image larger or smaller, between 10% and 200%
-- alpha This allows you to change the transparency of the image between 0-100%
+- **tag**   This allows you to only show cats that match the provided tab
+- **text**  This allows you to display some additional text on you image (the right way around).
+- **scale** This allows you to make the image larger or smaller, between 10% and 200%
+- **alpha** This allows you to change the transparency of the image between 0-100%
 
 For example:
 
@@ -66,17 +66,17 @@ Then authenticate using
 
 You login with Open ID enter the details for the identity provider in the appsettings.json file.
 
-  "Openid": {
-    "Authority": "",
-    "ClientSecret": "",
-    "ClientId": ""
-  }
+    "Openid": {  
+      "Authority": "",  
+      "ClientSecret": "",  
+      "ClientId": ""  
+    }
 
 The client secret can be provided by using an environment variable. An example configuration is included in the appsettings.Development.json file.
 This uses an demo client on the https://auth0.com/ site. Users can authenticate using:
 
-Username: test1@demo.com
-Password: Password!
+Username: test1@demo.com  
+Password: Password!  
 
 You can use the external identity provider by browing directly to the login URL and be redirected directly back to the page you want. Allowing you to access your cat pictures as quickly as possible.
 
