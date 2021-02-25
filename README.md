@@ -94,4 +94,4 @@ To logout browse to
 
     /api/auth/logiout
 
-If you logged in using an external identity provider you will be redirect to loggout their also if the provider supports the end session endpoint.
+If you logged in using an external identity provider you will be redirect to loggout there also if the provider supports the end session endpoint.
