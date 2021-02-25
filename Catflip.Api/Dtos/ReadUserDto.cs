@@ -1,4 +1,4 @@
-﻿namespace Catflip.Api
+﻿namespace Catflip.Api.Dtos
 {
     public class ReadUserDto
     {

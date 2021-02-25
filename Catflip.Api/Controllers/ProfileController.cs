@@ -9,6 +9,9 @@ namespace Catflip.Api.Controllers
     [ApiController, Authorize]
     public class ProfileController : ControllerBase
     {
+        /// <summary>
+        /// Returns all the claims for the current user
+        /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

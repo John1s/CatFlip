@@ -22,6 +22,16 @@ namespace Catflip.Api.Controllers
             TransformationFactory = transformationFactory;
         }
 
+        /// <summary>
+        /// Returns a random picture of a cat rotated 180 degrees.
+        /// </summary>
+        /// <remarks>
+        /// The user must be authenticated.
+        /// </remarks>
+        /// <param name="tag">An optional tag that can be used to filter the cat images.</param>
+        /// <param name="text">Optional text that can be included on the image.</param>
+        /// <param name="alpha">An option value between 0-100 that with change the image transparancy.</param>
+        /// <param name="scale">An option value between 10 and 200% that will resize the image.</param>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

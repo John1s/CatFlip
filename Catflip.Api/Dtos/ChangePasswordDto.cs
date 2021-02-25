@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Catflip.Api
+namespace Catflip.Api.Dtos
 {
     public class ChangePasswordDto
     {
-        [Required, StringLength(maximumLength: 255, MinimumLength = 8)]
+        [Required, StringLength(maximumLength: 255, MinimumLength = 8), PasswordComplexity]
         public string NewPassword { get; set; }
-        [Required, StringLength(maximumLength: 255, MinimumLength = 8)]
+        [Required]
         public string OldPassword { get; set; }
     }
 }

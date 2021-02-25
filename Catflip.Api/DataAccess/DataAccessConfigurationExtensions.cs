@@ -9,24 +9,45 @@ namespace Catflip.Api.DataAccess
 {
     public static class DataAccessConfigurationExtensions
     {
-        public static IServiceCollection AddCatflipDataAccess(this IServiceCollection services, IConfiguration Configuration)
+        static bool UseInMemoryDb(IConfiguration configuration)
         {
+            var value = configuration["UseInMemoryDb"];
+            if(value != null && bool.TryParse(value, out bool useInMemory))
+            {
+                return useInMemory;
+            }
+            return false;
+        }
 
-            var connectionString = Configuration.GetConnectionString("UserDatabase");
+
+        public static IServiceCollection AddCatflipDataAccess(this IServiceCollection services, IConfiguration configuration)
+        {
+            
             services.AddDbContext<CatflipDbContext>(options =>
             {
-                options.UseSqlServer(connectionString,
-                    sqlServerOptionsAction =>
-                    {
-                        sqlServerOptionsAction.EnableRetryOnFailure();
-                    });
+                if (UseInMemoryDb(configuration))
+                {
+                    options.UseInMemoryDatabase("userdb");
+                }
+                else
+                {
+                    var connectionString = configuration.GetConnectionString("UserDatabase");
+                    options.UseSqlServer(connectionString,
+                        sqlServerOptionsAction =>
+                        {
+                            sqlServerOptionsAction.EnableRetryOnFailure();
+                        });
+                }
             });
             return services;
         }
 
-        public static void ApplyDatabaseMigrations(this IApplicationBuilder app)
+        public static void ApplyDatabaseMigrations(this IApplicationBuilder app, IConfiguration configuration)
         {
-
+            if (UseInMemoryDb(configuration))
+            {
+                return;
+            }
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 var services = scope.ServiceProvider;

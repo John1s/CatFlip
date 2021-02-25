@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Catflip.Api
@@ -53,10 +54,13 @@ namespace Catflip.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catflip", Version = "v1" });
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Catflip.Api.xml"));
             });
 
-            var options = new OpenIdClientOptions();
-            services.Configure<OpenIdClientOptions>(Configuration.GetSection("openid"));
+            services.AddOptions<OpenIdClientOptions>()
+                .Bind(Configuration.GetSection("openid"))
+                .ValidateDataAnnotations();
+
             services.AddSingleton<IPostConfigureOptions<OpenIdConnectOptions>, OpentIdConnectPostConfigurationOptions>();
              
             //Using same site = none  and secure policy same as request to allow the client to be on a different domain which can be useful for testing.
@@ -131,7 +135,7 @@ namespace Catflip.Api
                 endpoints.MapControllers();
             });
 
-            app.ApplyDatabaseMigrations();
+            app.ApplyDatabaseMigrations(Configuration);
         }
     }
 }

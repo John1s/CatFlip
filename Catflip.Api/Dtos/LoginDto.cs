@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Catflip.Api
+namespace Catflip.Api.Dtos
 {
     public class LoginDto
     {

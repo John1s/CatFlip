@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catflip.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Catflip.Api.Controllers.CatsController.Cat(System.String,System.String,System.Nullable{System.Single},System.Nullable{System.Single})">
+            <summary>
+            Returns a random picture of a cat rotated 180 degrees.
+            </summary>
+            <remarks>
+            The user must be authenticated.
+            </remarks>
+            <param name="tag">An optional tag that can be used to filter the cat images.</param>
+            <param name="text">Optional text that can be included on the image.</param>
+            <param name="alpha">An option value between 0-100 that with change the image transparancy.</param>
+            <param name="scale">An option value between 10 and 200% that will resize the image.</param>
+        </member>
+        <member name="M:Catflip.Api.Controllers.ProfileController.UserProfile">
+            <summary>
+            Returns all the claims for the current user
+            </summary>
+        </member>
+        <member name="M:Catflip.Controllers.AuthController.LoginExternal(System.String)">
+            <summary>
+            Login with an external identity provider
+            </summary>
+            <param name="redirectUri">The uri to redirect to after login</param>
+        </member>
+        <member name="M:Catflip.Controllers.AuthController.LogoutExternal(System.String)">
+            <summary>
+            Logout. Logs out of the external identity provider if supported
+            </summary>
+            <param name="redirectUri">The uri to redirect to after logout</param>
+        </member>
+        <member name="M:Catflip.Controllers.AuthController.Login(Catflip.Api.Dtos.LoginDto)">
+            <summary>
+            Login with a user name and password
+            </summary>
+        </member>
+        <member name="M:Catflip.Controllers.UsersController.CreateUser(Catflip.Api.Dtos.CreateUserDto)">
+            <summary>
+            Creates a new user
+            </summary>
+            <remarks>
+            The password must contain at least 1 number and 1 special character form '#, ?, !, @, $, %, ^, &amp;, *, -' and be at least 8 characters long.
+            </remarks>
+        </member>
+        <member name="M:Catflip.Controllers.UsersController.PatchUser(System.String,Catflip.Api.Dtos.ChangePasswordDto)">
+            <summary>
+            Update the users password
+            </summary>
+            <remarks>
+            The password must contain at least 1 number and 1 special character form '#, ?, !, @, $, %, ^, &amp;, *, -' and be at least 8 characters long.
+            </remarks>
+            <param name="username">The user to update</param>
+        </member>
+        <member name="M:Catflip.Controllers.UsersController.DeleteUser(System.String)">
+            <summary>
+            Deletes a user from the application
+            </summary>
+            <remarks>
+            You can only delete your own account.
+            </remarks>
+            <param name="username">The user to delete</param>
+        </member>
+    </members>
+</doc>
