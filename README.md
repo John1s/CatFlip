@@ -6,9 +6,11 @@ This application returns a random example of a cat and performs to image transfo
 
 To get a picture of an upside down cat browse to:
 
-/api/cats
+    /api/cats
 
 or use the Swagger UI.
+
+    /api/docs/swagger
 
 Additional optional transformation options can be included using query parameters
 
@@ -19,7 +21,7 @@ Additional optional transformation options can be included using query parameter
 
 For example:
 
-/api/cats?text=hello&tag=cute&scale=150&alpha=5
+    /api/cats?text=hello&tag=cute&scale=150&alpha=5
 
 Additional transformations can be created in the transformation folder by implementing the transformation interface.
 
@@ -27,10 +29,12 @@ Additional transformations can be created in the transformation folder by implem
 
 The API documentation is provided by a swagger file within the application.
 The swagger document is available at
-/api/docs/swagger/v1/swagger.json
+
+    /api/docs/swagger/v1/swagger.json
 
 In a development environment the swagger UI is available at
-/api/docs/swagger
+
+    /api/docs/swagger
 
 ## Database
 
@@ -51,11 +55,11 @@ The application supports Basic and OpenId authentication.
 
 For basic authentication create a user using the
 
-POST /api/user
+    POST /api/user
 
 Then authenticate using
 
-POST /api/auth/login
+    POST /api/auth/login
 
 ### OpenId
 
@@ -86,6 +90,7 @@ Both authentication methods set an authentication cookie in the browser. This wi
 ### Logout
 
 To logout browse to
-/api/auth/logiout
+
+    /api/auth/logiout
 
 If you logged in using an external identity provider you will be redirect to loggout their also if the provider supports the end session endpoint.
