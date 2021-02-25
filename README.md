@@ -92,6 +92,6 @@ Both authentication methods set an authentication cookie in the browser. This wi
 
 To logout browse to
 
-    /api/auth/logiout
+    /api/auth/logout
 
 If you logged in using an external identity provider you will be redirect to loggout there also if the provider supports the end session endpoint.
