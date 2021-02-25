@@ -23,7 +23,7 @@ For example:
 
     /api/cats?text=hello&tag=cute&scale=150&alpha=5
 
-Additional transformations can be created in the transformation folder by implementing the transformation interface.
+The transformation interface and transformation folder allows the addition of additional transformations as needed.
 
 ## API Documentation
 
@@ -39,13 +39,14 @@ In a development environment the swagger UI is available at
 ## Database
 
 The application supports an in memory or SqlServer database. To configure the database use the following setting in tha app.config file.
-  "UseInMemoryDb" : "true"
+
+    "UseInMemoryDb" : "true"
 
 For a SQLServer database a connection string must also be provided.
 
-  "ConnectionStrings": {
-    "UserDatabase": "Server=localhost,1433;Database=UserDb;User ID=sa;Password="
-  }
+    "ConnectionStrings": {
+      "UserDatabase": "Server=localhost,1433;Database=UserDb;User ID=sa;Password="
+    }
 
 ## Authentication
 
